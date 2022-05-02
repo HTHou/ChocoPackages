@@ -21,7 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set key
-        run: choco apikey --key ${{ secrets.CHOCOAPIKEY }} --source https://push.chocolatey.org/
+        env:
+          CHOCO_API_KEY: ${{ secrets.CHOCO_API_KEY }}
+        run: choco apikey --key "$env:CHOCO_API_KEY" --source https://push.chocolatey.org/
       - name: Make package
         run: cd boost-msvc-14.3 ; `
           choco pack
