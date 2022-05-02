@@ -26,4 +26,5 @@ jobs:
         run: cd boost-msvc-14.3 ; `
           choco pack
       - name: Upload
-        run: choco push boost-msvc-14.3.1.78.0.nupkg --source https://push.chocolatey.org/
+        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.3 ; `
+          choco push boost-msvc-14.3.1.78.0.nupkg --source https://push.chocolatey.org/
