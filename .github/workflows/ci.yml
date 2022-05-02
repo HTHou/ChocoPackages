@@ -1,13 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-    
-  pull_request:
-    branches:
-      - main
   # allow manually run the action:
   workflow_dispatch:
 
@@ -27,14 +20,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Download Boost
-        run: choco install boost-msvc-14.3 --version=1.78.0
-      - name: Install Boost
-        run: cd C:\local\boost_1_78_0 ; `
-          .\bootstrap.bat ; `
-          .\b2.exe
-      - name: Install OpenSSL
-        run:  choco install openssl
-      - name: Add Flex and Bison Path and OpenSSL
-        shell: bash
-        run: cd /d/a/cpp && unzip win_flex_bison.zip && mv win_flex.exe flex.exe && mv win_bison.exe bison.exe  && echo 'export PATH=/d/a/cpp:$PATH' >> ~/.bash_profile && source ~/.bash_profile
+      - name: Set key
+        run: choco apikey --key 52a860a0-93e6-4c0e-9649-a6fb802dd902 --source https://push.chocolatey.org/
+      - name: Make package
+        run: cd boost-msvc-14.3 ; `
+          choco pack
+      - name: Upload
+        run: choco push boost-msvc-14.3.1.78.0.nupkg --source https://push.chocolatey.org/
