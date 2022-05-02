@@ -1,0 +1,46 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+# CPP compiling is too slow, so let's do it in parallel with testing other modules.
+# As there is no Java client, we just use one JDK.
+name: C++ Client
+
+on:
+  push:
+    branches:
+      - master
+      - "rel/*"
+    
+  pull_request:
+    branches:
+      - main
+  # allow manually run the action:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  build-win:
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        os: [windows-latest]
+    runs-on: ${{ matrix.os}}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download Boost
+        run: choco install boost-msvc-14.3 --version=1.78.0
+      - name: Install Boost
+        run: cd C:\local\boost_1_78_0 ; `
+          .\bootstrap.bat ; `
+          .\b2.exe
+      - name: Install OpenSSL
+        run:  choco install openssl
+      - name: Add Flex and Bison Path and OpenSSL
+        shell: bash
+        run: cd /d/a/cpp && unzip win_flex_bison.zip && mv win_flex.exe flex.exe && mv win_bison.exe bison.exe  && echo 'export PATH=/d/a/cpp:$PATH' >> ~/.bash_profile && source ~/.bash_profile
