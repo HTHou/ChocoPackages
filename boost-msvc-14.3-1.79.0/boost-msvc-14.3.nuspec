@@ -8,7 +8,7 @@
     <owners>HunterH</owners>
     <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl>
     <projectUrl>http://www.boost.org</projectUrl>
-    <iconUrl>https://www.boost.org/doc/libs/1_79_0/boost.png</iconUrl>
+    <iconUrl>https://avatars.githubusercontent.com/u/3170529</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Boost provides free portable peer-reviewed C++ libraries. The emphasis is on portable libraries which work well with the C++ Standard Library. This package includes Boost headers and libs compiled with Visual Studio 2022 for 32bit and 64bit Windows.</description>
     <summary>Boost headers and libs compiled with Visual Studio 2022 for 32bit and 64bit Windows.</summary>
