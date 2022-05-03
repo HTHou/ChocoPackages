@@ -1,4 +1,4 @@
-name: boost-msvc-14.3
+name: boost-msvc-14.3-1.79.0
 
 on:
   # allow manually run the action:
@@ -21,10 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Make package
-        run: cd boost-msvc-14.3 ; `
+        run: cd boost-msvc-14.3-1.79.0 ; `
           choco pack
       - name: Upload
-        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.3 ; `
+        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.3-1.79.0 ; `
           choco install boost-msvc-14.3 -s .
           # choco apikey --key oooo --source https://push.chocolatey.org/ 
           # choco push boost-msvc-14.3.1.79.0.nupkg --source https://push.chocolatey.org/
