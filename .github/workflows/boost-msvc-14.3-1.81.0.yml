@@ -1,0 +1,28 @@
+name: boost-msvc-14.3-1.81.0
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  build-win:
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Make package
+        run: cd boost-msvc-14.3-1.81.0 ; `
+          choco pack
+      - name: Upload
+        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.3-1.81.0 ; `
+          choco apikey --key ${{ secrets.CHOCO_API_KEY }} --source https://push.chocolatey.org/ ; `
+          choco push boost-msvc-14.3.1.81.0.nupkg --source https://push.chocolatey.org/
+          # choco install boost-msvc-14.3 -s .
+          
