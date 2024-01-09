@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop';
 
-$installDirRoot = "c:\local\boost_1_82_0"
+$installDirRoot = "c:\local\boost_1_84_0"
 $binaryDirs = "$installDirRoot\lib32-msvc-14.3", "$installDirRoot\lib64-msvc-14.3"
 
 # remove binary directories
