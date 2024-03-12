@@ -23,5 +23,5 @@ jobs:
       - name: Upload
         run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.3-1.84.0 ; `
           choco apikey --key ${{ secrets.CHOCO_API_KEY }} --source https://push.chocolatey.org/ ; `
-          choco push -f boost-msvc-14.3.1.84.0.nupkg --source https://push.chocolatey.org/
+          choco push --force boost-msvc-14.3.1.84.0.nupkg --source https://push.chocolatey.org/
           # choco install boost-msvc-14.3 -s .
