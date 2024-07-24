@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>boost-msvc-14.2</id>
+    <version>1.85.0</version>
+    <title>Boost for MSVC 14.2</title>
+    <authors>Jeff Garland, Beman Dawes, Carl Daniel, Dave Abrahams, Douglas Gregor, John Maddock</authors>
+    <owners>HunterH</owners>
+    <licenseUrl>http://www.boost.org/LICENSE_1_0.txt</licenseUrl>
+    <projectUrl>http://www.boost.org</projectUrl>
+    <iconUrl>https://github.com/boostorg.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Boost provides free portable peer-reviewed C++ libraries. The emphasis is on portable libraries which work well with the C++ Standard Library. This package includes Boost headers and libs compiled with Visual Studio 2019 for 32bit and 64bit Windows.</description>
+    <summary>Boost headers and libs compiled with Visual Studio 2019 for 32bit and 64bit Windows.</summary>
+    <releaseNotes>http://www.boost.org/users/history/version_1_85_0.html</releaseNotes>
+    <copyright>Copyright Beman Dawes, David Abrahams, 1998-2005. Copyright Rene Rivera 2004-2007.</copyright>
+    <tags>boost c++ msvc msvc-14.2</tags>
+    <projectSourceUrl>https://github.com/boostorg/boost</projectSourceUrl>
+    <packageSourceUrl>https://github.com/HTHou/ChocoPackages/tree/main/boost-msvc-14.2-1.85.0</packageSourceUrl>
+    <docsUrl>https://www.boost.org/doc/</docsUrl>
+    <mailingListUrl>https://www.boost.org/community/groups.html</mailingListUrl>
+    <bugTrackerUrl>https://www.boost.org/development/bugs.html</bugTrackerUrl>
+  </metadata>
+</package>
