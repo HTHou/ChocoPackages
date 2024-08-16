@@ -1,7 +1,6 @@
-name: boost-msvc-14.3
+name: boost-msvc-14.3-1.86.0
 
 on:
-  # allow manually run the action:
   workflow_dispatch:
 
 concurrency:
@@ -10,22 +9,16 @@ concurrency:
 
 jobs:
 
-  build-win:
-    strategy:
-      fail-fast: false
-      max-parallel: 20
-      matrix:
-        os: [windows-latest]
-    runs-on: ${{ matrix.os}}
+  Upload:
+    runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Make package
-        run: cd boost-msvc-14.3 ; `
+        run: cd boost-msvc-14.3-1.86.0 ; `
           choco pack
       - name: Upload
-        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.3 ; `
-          choco install boost-msvc-14.3 -s .
-          # choco apikey --key oooo --source https://push.chocolatey.org/ 
-          # choco push boost-msvc-14.3.1.79.0.nupkg --source https://push.chocolatey.org/
-          
+        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.3-1.86.0 ; `
+          choco apikey --key ${{ secrets.CHOCO_API_KEY }} --source https://push.chocolatey.org/ ; `
+          choco push -f -v boost-msvc-14.3.1.86.0.nupkg --source https://push.chocolatey.org/
+          # choco install boost-msvc-14.3 -s .
