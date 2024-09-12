@@ -1,4 +1,4 @@
-name: boost-msvc-14.2-1.85.0
+name: boost-msvc-14.2
 
 on:
   workflow_dispatch:
@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Make package
-        run: cd boost-msvc-14.2-1.85.0 ; `
+        run: cd boost-msvc-14.2-1.86.0 ; `
           choco pack
       - name: Upload
-        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.2-1.85.0 ; `
+        run: cd D:\a\ChocoPackages\ChocoPackages\boost-msvc-14.2-1.86.0 ; `
           choco apikey --key ${{ secrets.CHOCO_API_KEY }} --source https://push.chocolatey.org/ ; `
           choco push -f -v boost-msvc-14.2.1.85.0.nupkg --source https://push.chocolatey.org/

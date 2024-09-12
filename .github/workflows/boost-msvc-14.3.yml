@@ -1,4 +1,4 @@
-name: boost-msvc-14.3-1.86.0
+name: boost-msvc-14.3
 
 on:
   workflow_dispatch:
